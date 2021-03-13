@@ -4,19 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.data.mapper.UserMapper">
 
-    <select id="findById" resultType="User">
+    <select id="findById" resultType="User" useCache="true">
         select * from user where id = #{id}
     </select>
 
-    <select id="list" resultType="User">
+    <select id="list" resultType="User" useCache="true">
         select *
         from user
         order by id desc;
     </select>
 
-    <select id="save">
+    <insert id="save" parameterType="User">
         insert into user (create_time, username, phone, password, status)
         values(now(), #{username}, #{phone}, #{password}, #{status});
-    </select>
+    </insert>
+    
+    <update id="update" parameterType="User">
+        update user
+        <set>
+            <if test="username != null and username != ''">
+                username=#{username},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone=#{phone},
+            </if>
+            <if test="password != null and password != ''">
+                password=#{password},
+            </if>
+            <if test="status != null and status != ''">
+                status=#{status},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 
 </mapper>

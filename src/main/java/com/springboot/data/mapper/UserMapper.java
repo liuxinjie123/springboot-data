@@ -2,6 +2,7 @@ package com.springboot.data.mapper;
 
 import com.springboot.data.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.*;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +21,6 @@ public interface UserMapper {
 
     void save(User user);
 
+    void update(User user);
 
 }
