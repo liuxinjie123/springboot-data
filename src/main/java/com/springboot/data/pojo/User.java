@@ -1,4 +1,4 @@
-package com.springboot.data.entity;
+package com.springboot.data.pojo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

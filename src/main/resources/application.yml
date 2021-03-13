@@ -32,3 +32,12 @@ spring:
     format:
       date-time: yyyy-MM-dd HH:mm:ss
       date: yyyy-MM-dd
+
+
+# mybatis
+mybatis:
+  type-aliases-package: com.springboot.data.pojo
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
